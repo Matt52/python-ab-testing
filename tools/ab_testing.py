@@ -23,12 +23,20 @@ def z_test_power_alternative(mu_A, mu_B, se_A, se_B, alpha = 0.05, sides = 2):
     return power
 
 
-def z_test_sample_size(conv_r, mde, confidance = 0.95, power = 0.8, test_share_size = 0.5):
+def z_test_sample_size(conv_r, mde, confidance = 0.95, power = 0.8, test_share_size = 0.5, test_type = 'two-tailed'):
+
+    if test_type not in ['one-tailed', 'two-tailed']:
+        raise ValueError("Invalid test type. Expected one of: %s" % ['one-tailed', 'two-tailed'])
+    elif test_type == 'one-tailed':
+        sides = 1
+    else:
+        sides = 2
+    
     alpha = 1 - confidance
     conv_exp = conv_r * (1 + mde)
     var = conv_r * (1 - conv_r) + conv_exp * (1 - conv_exp)
     
-    size = (var / ((conv_exp - conv_r)**2)) * (norm.ppf(power) + norm.ppf(1 - alpha/2))**2
+    size = (var / ((conv_exp - conv_r)**2)) * (norm.ppf(power) + norm.ppf(1 - alpha/sides))**2
 
     share_ratio = (1 - test_share_size) / test_share_size
     size_adj = (2*size*((1 + share_ratio)**2)) / (4*share_ratio)
@@ -37,11 +45,18 @@ def z_test_sample_size(conv_r, mde, confidance = 0.95, power = 0.8, test_share_s
 
 
 #version that should be used in abtestguide to be consistent with their power calculation
-def z_test_sample_size_alternative(conv_r, mde, confidance = 0.95, power = 0.8):
+def z_test_sample_size_alternative(conv_r, mde, confidance = 0.95, power = 0.8, test_type = 'two-tailed'):
+    if test_type not in ['one-tailed', 'two-tailed']:
+        raise ValueError("Invalid test type. Expected one of: %s" % ['one-tailed', 'two-tailed'])
+    elif test_type == 'one-tailed':
+        sides = 1
+    else:
+        sides = 2
+
     alpha = 1 - confidance
     conv_exp = conv_r * (mde + 1)
 
-    size = ((norm.ppf(1 - alpha/2) * np.sqrt(conv_r * (1 - conv_r)) + norm.ppf(power) * np.sqrt(conv_exp * (1 - conv_exp))) / (conv_exp - conv_r))**2
+    size = ((norm.ppf(1 - alpha/sides) * np.sqrt(conv_r * (1 - conv_r)) + norm.ppf(power) * np.sqrt(conv_exp * (1 - conv_exp))) / (conv_exp - conv_r))**2
 
     return size
 
