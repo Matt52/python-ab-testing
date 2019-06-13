@@ -1,7 +1,7 @@
 # python-ab-testing
 Python tools for AB testing (frequentist &amp; bayesian approach)
 
-All functions could be found [here](tools)<br>
+All functions could be found [here](tools).<br>
 See [this notebook](AB_testing_demonstration.ipynb) for a demonstration.<br>
 
 Calculation of z-test power may differ from some online calculators (see belove). I believe they have a different approach and to be honest I am not sure if it is correct. I opened a question [here](https://math.stackexchange.com/questions/3259058/ab-testing-power-of-2-sample-z-test) so maybe someone will answer it.<br>
