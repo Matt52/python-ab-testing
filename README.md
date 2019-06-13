@@ -1,5 +1,5 @@
 # python-ab-testing
-Python tools for AB testing (frequentist &amp; bayesian approach)
+### Python tools for AB testing (frequentist &amp; bayesian approach)
 
 All functions could be found [here](tools).<br>
 See [this notebook](AB_testing_demonstration.ipynb) for a demonstration.<br>
