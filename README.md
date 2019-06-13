@@ -1,11 +1,12 @@
 # python-ab-testing
 Python tools for AB testing (frequentist &amp; bayesian approach)
 
-See [this notebook](AB_testing.ipynb) for a demonstration.
+All functions could be found [here](tools)<br>
+See [this notebook](AB_testing_demonstration.ipynb) for a demonstration.
 
 
 
-calculators:
+some online calculators:<br>
 https://www.surveymonkey.com/mp/ab-testing-significance-calculator/<br>
 https://abtestguide.com/calc/<br>
 https://abtestguide.com/abtestsize/<br>
