@@ -4,9 +4,9 @@
 All functions could be found [here](tools).<br>
 See [this notebook](AB_testing_demonstration.ipynb) for a demonstration.<br>
 
-Calculation of z-test power may differ from some online calculators (see belove). I believe they have a different approach and to be honest I am not sure if it is correct. I opened a question [here](https://math.stackexchange.com/questions/3259058/ab-testing-power-of-2-sample-z-test) so maybe someone will answer it.<br>
+Calculation of z-test power may differ from some online calculators (see below). I believe they have a different approach and to be honest I am not sure if it is correct. I opened a question [here](https://math.stackexchange.com/questions/3259058/ab-testing-power-of-2-sample-z-test) so maybe someone will answer it.<br>
 
-Bayesian part is inspired mainly by [this Coursera course](https://www.coursera.org/learn/bayesian-statistics) which I can really recommend. Log-normal approach to revenue was inspired by [this blog post](https://www.richrelevance.com/blog/2013/08/26/bayesian-ab-testing-with-a-log-normal-model/). But be careful, there is a mistake in function _draw_mus_and_sigmas_ (_var_norm_ should be really equal to _sqrt(sig_sq_samples/kN)_).
+Bayesian part is inspired mainly by [this Coursera course](https://www.coursera.org/learn/bayesian-statistics) which I really recommend. Log-normal approach to revenue was inspired by [this blog post](https://www.richrelevance.com/blog/2013/08/26/bayesian-ab-testing-with-a-log-normal-model/). But be careful, there is a mistake in function _draw_mus_and_sigmas_ (_var_norm_ should be really equal to _sqrt(sig_sq_samples/kN)_).
 
 
 
